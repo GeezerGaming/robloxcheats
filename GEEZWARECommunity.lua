@@ -351,7 +351,7 @@ end)
 Button9999:AddToolTip("you should totally use this button when geezin")
 
 function BRST()
-    game:GetService("Players").LocalPlayer.CharacterTorso.Neck:Destroy()
+    game:GetService("Players").LocalPlayer.Character.Torso.Neck:Destroy()
 end
 
 local ButtonBRST = Section2:CreateButton("Better Reset", function()
@@ -538,7 +538,7 @@ local Button1 = Section4:CreateButton("Delete GUI", function()
 end)
 
 -- credits to jan for patterns
-local Dropdown3 = Section5:CreateDropdown("Image", {"Default","Hearts","Abstract","Hexagon","Circles","Lace With Flowers","Floral"}, function(Name)
+local Dropdown3 = Section5:CreateDropdown("Image", {"Default","Hearts","Abstract","Hexagon","Circles","Lace With Flowers","Floral","Showerman"}, function(Name)
 	if Name == "Default" then
 		Window:SetBackground("2151741365")
 	elseif Name == "Hearts" then
@@ -553,6 +553,8 @@ local Dropdown3 = Section5:CreateDropdown("Image", {"Default","Hearts","Abstract
 		Window:SetBackground("6071575925")
 	elseif Name == "Floral" then
 		Window:SetBackground("5553946656")
+	elseif Name == "Showerman" then
+		Window:SetBackground("10257784197")
 	end
 end)
 Dropdown3:SetOption("Default")
