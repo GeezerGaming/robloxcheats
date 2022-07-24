@@ -5,12 +5,12 @@ getgenv().StaffKick = false
 getgenv().funnyspeed = false
 
 
--- IGNORE MY SHITTY CODE IT WORKS :)))) [FROG] 
+-- IGNORE MY SHITTY CODE IT WORKS :)))) [FROG] -- it barely works bro im so retarded [frog in the future]
 
 local Config = { 
-    WindowName = "GEEZWARE Community v3 | RIOT",
+    WindowName = "GEEZWARE Community v4 | RIOT",
 	Color = Color3.fromRGB(32,92,167),
-	Keybind = Enum.KeyCode.KeypadThree
+	Keybind = Enum.KeyCode.RightBracket
 }
 
 -- i hope you like paywalls
@@ -27,24 +27,26 @@ local Tab5 = Window:CreateTab("UI Settings")
 local Section1 = Tab1:CreateSection("Main Shit")
 local Section2 = Tab1:CreateSection("Extra Shit")
 local Section9 = Tab4:CreateSection("Miscellaneous")
+local sectionhead = Tab4:CreateSection("HeadSpoofing")
 local Section7 = Tab3:CreateSection("Extend like G0D")
 local Section4 = Tab5:CreateSection("Menu")
 local Section5 = Tab5:CreateSection("Background")
 local SectionT = Tab3:CreateSection("Other")
 
 
+
 local Players = game:GetService("Players")
 local plr = game:GetService("Players").LocalPlayer
-local LCH = game:GetService("Players").LocalPlayer.Character
-local HRP = LCH.HumanoidRootPart
+
+
 local ts = game:GetService("TweenService")
+
+
 
 
 local kyscunt = game:GetService("CoreGui")
 
-local PISS = 2
-
-game:GetService("Players").LocalPlayer.PlayerGui.Profile.Main.TextLabel.Text = "GEEZWARE ON TOP :)"
+local PISS = 2 -- what does this even mean? [frog]
 
 
 ---
@@ -73,6 +75,12 @@ function randommsg()
 	  msgevent:FireServer("geezer never team, geezer only friend", "All") -- FUCK you for this SPELLING MISTAKE, your GEEZER2. (i fixed this so you dont get it)
 end end
 
+
+function disableconnection(path)
+	for i, connection in pairs(getconnections(path)) do
+		connection:Disable()
+	end
+end
 
 
 function check(value)
@@ -107,6 +115,9 @@ end end
 
 
 function tweentp(coords)
+    local LCH = game:GetService("Players").LocalPlayer.Character
+    local HRP = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+
 	local tweenInfo = TweenInfo.new(4,Enum.EasingStyle.Linear,Enum.EasingDirection.Out)
 	ts:Create(HRP, tweenInfo, {CFrame = coords}):Play()
 end
@@ -119,23 +130,6 @@ function autoJOE()
     end
 end
 
-local toggleAUGH = Section2:CreateToggle("AUTO JOSEPH.", nil, function(State)
-getgenv().autojoe = State
-if autojoe then
-    autoJOE()
-    wait()
-end
-
-end)
-
-function antiaim(aapower)
-    spawn(function()
-            local BT = Instance.new("BodyThrust")
-            BT.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
-            BT.Force = Vector3.new(aapower,0,aapower)
-            BT.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-    end)
-end
 
 -------------
 local WEAPONLOL
@@ -188,14 +182,21 @@ local Toggle66 = Section1:CreateToggle("Inf Accelerate", nil, function(State)
     end
 end)
 
+function setdowned(state)
+local LCH = game:GetService("Players").LocalPlayer.Character
+local HRP = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+LCH:SetAttribute("Downed", state)
+end
 
 local Toggle6 = Section1:CreateToggle("Downed", nil, function(State)
-	LCH:SetAttribute("Downed", State)
+	setdowned(State)
 end)
 Toggle6:AddToolTip("Changes your downed state.")
 
 -- haha no antiaim (FUCK YOU)
 -- TP INSTEAD!!!!
+
+
 
 local PBuy = game:GetService("Workspace").PBuyables
 local SelArea
@@ -215,6 +216,9 @@ local Button211 = Section2:CreateButton("Teleport to box", function()
 end)
 
 
+local Button2h12 = Section2:CreateButton("No jump cooldown", function()
+	disableconnection(game:GetService("UserInputService").JumpRequest)
+end)
 
 local ButtonMace = Section2:CreateButton("Activate Old Mace", function()
 	for i,v in pairs(getgc(true)) do 
@@ -231,6 +235,9 @@ ButtonMace:AddToolTip("Execute before buying Mace.")
 
 
 function oldanims()
+    local LCH = game:GetService("Players").LocalPlayer.Character
+    local HRP = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+
 LCH["Carry/Finish"].Finish.AnimationId = "rbxassetid://7121695954"
 
 wait()
@@ -289,7 +296,7 @@ local fuck = Section7:CreateToggle("Toggle Extender", nil, function(State)
 end)
 
 local sex = SectionT:CreateTextBox("Hitbox Transparency", "Only numbers", true, function(Value)
-	_G.trans = Value
+	getgenv().trans = Value -- shoutout trans people [frog]
 end)
 
 local fuckslider = Section7:CreateSlider("Extender Size", 2, 30, 5, true, function(value) -- FUCK this extender 
@@ -343,34 +350,59 @@ local Button9999 = Section2:CreateButton("Discord Ad", function()
 end)
 Button9999:AddToolTip("you should totally use this button when geezin")
 
+function BRST()
+    game:GetService("Players").LocalPlayer.CharacterTorso.Neck:Destroy()
+end
 
-local ButtonWORM = Section2:CreateButton("worm mode.", function()
-	for i,v in pairs(LCH:getChildren()) do
-		if v.Name == "Left Leg" then v:Destroy() end end
-		for i,v in pairs(LCH:getChildren()) do
-		if v.Name == "Right Leg" then v:Destroy() end end
-		for i,v in pairs(LCH:getChildren()) do
-		if v.Name == "Left Arm" then v:Destroy() end end
-end) -- lol
+local ButtonBRST = Section2:CreateButton("Better Reset", function()
+	BRST()
+end) -- wow [frog]
+ButtonBRST:AddToolTip("Lets you reset your character any time (if you're being bled, for example)\nif you reset while being carried, that person can no longer carry you")
+
+
+
 
 -------------
 local SP = game:GetService("StarterPlayer")
 
 -- will add more here, just wanted some misc features for fun [frog]
 
+local toggleAUGH = Section9:CreateToggle("AUTO JOSEPH.", nil, function(State)
+	getgenv().autojoe = State
+	if autojoe then
+		autoJOE()
+		wait()
+end
+end)
+
+
 local Button2312 = Section9:CreateButton("Remove System Messages", function()
 	plr.PlayerScripts.SystemMessages:Destroy()
 	SP.StarterPlayerScripts.SystemMessages:Destroy()
 end)
-Button2312:AddToolTip("Stops Sytsem Messages from sending")
+Button2312:AddToolTip("Stops System Messages from sending")
+
 
 local Slider123 = Section9:CreateSlider("CurrentHealth Effects", 0,100,nil,true, function(Value)
 	getsenv(plr.PlayerScripts.DamageIndicator).currentHealth = Value
 end)
 Slider123:AddToolTip("Changes the health effects")
 
+local Tzoggle674 = Section9:CreateToggle("Downed Effects", nil, function(State)
+	getsenv(plr.PlayerScripts.DamageIndicator).downed = State
+end)
+Tzoggle674:AddToolTip("Changes the downed effect")
+
+
+
+
 
 local Button2312z = Section9:CreateButton("Disable anti-swim", function()
+
+local LCH = game:GetService("Players").LocalPlayer.Character
+local HRP = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+
+
 	LCH.StateEnabled:Destroy()
 	SP.StarterCharacterScripts.StateEnableds:Destroy()
 end)
@@ -378,6 +410,9 @@ Button2312z:AddToolTip("Allows you to swim (use something like inf yield)")
 
 
 function demeshlol()
+    local LCH = game:GetService("Players").LocalPlayer.Character
+    local HRP = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+
 	for i,v in pairs (LCH:GetChildren()) do
 		if v.ClassName == "Tool" then
 			v.Handle.Mesh:Destroy()
@@ -404,6 +439,76 @@ local Button2732z = Section9:CreateButton("Reset Character", function()
 end)
 Button2732z:AddToolTip("Makes you hit the haystack")
 
+
+local Buttondmz = Section9:CreateButton("Disable Death screen", function()
+	disableconnection(game:GetService("Players").LocalPlayer.Character.Humanoid.Died)
+end)
+
+local ButtonWORM = Section9:CreateButton("worm mode.", function()
+    local LCH = game:GetService("Players").LocalPlayer.Character
+    local HRP = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+
+	for i,v in pairs(LCH:getChildren()) do
+		if v.Name == "Left Leg" then v:Destroy() end end
+		for i,v in pairs(LCH:getChildren()) do
+		if v.Name == "Right Leg" then v:Destroy() end end
+		for i,v in pairs(LCH:getChildren()) do
+		if v.Name == "Left Arm" then v:Destroy() end end
+end) -- lol [frog]
+
+
+
+
+function headspoof()
+
+    local LCH = game:GetService("Players").LocalPlayer.Character
+    local HRP = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+
+	for i,v in pairs(LCH.Animate:GetChildren()) do
+		if v.Name == "Assets" then v:Destroy()
+	end
+	for i,v in pairs(game:GetService("StarterPlayer").StarterCharacterScripts.Animate:GetChildren()) do
+		if v.Name == "Assets" then v:Destroy()
+	end end end
+end
+
+
+
+
+function headmove(a,b,c,z,x,c)
+    local LCH = game:GetService("Players").LocalPlayer.Character
+	local argshm = {
+		[1] = "maybe_akita_can_program...",
+		[2] = CFrame.new(a,b,c) * CFrame.Angles(z,x,c)
+	}
+	
+	game:GetService("ReplicatedStorage").Events.Look:FireServer(unpack(argshm))
+	
+	LCH.Torso.Neck.C0 = CFrame.new(a,b,c) * CFrame.Angles(z,x,c) -- lets you see your head position locally [frog]
+end
+
+
+
+local Button2z732z = sectionhead:CreateButton("Spoof Head Movement", function()
+	headspoof()
+end)
+Button2z732z:AddToolTip("Allows spoofing head movement") -- not even spoofing it just sounds cool LOOOL [frog]
+
+local Button2v0z = sectionhead:CreateButton("Reset Head to normal", function()
+	headmove(0,1,0,1.5,-9.5,0)
+end)
+
+local Button2v08 = sectionhead:CreateButton("Backwards head", function()
+	headmove(0,1,0,-1.8,0,0)
+end)
+
+local Button2v07 = sectionhead:CreateButton("upsidedown head", function()
+	headmove(0,1.99,0,1.5,0,0)
+end)
+
+local Button3vcz = sectionhead:CreateButton("head legs", function()
+	headmove(0,-1,0,-1.5,9.5,0)
+end)
 
 
 
