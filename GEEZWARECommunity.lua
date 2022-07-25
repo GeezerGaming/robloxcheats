@@ -8,7 +8,7 @@ getgenv().funnyspeed = false
 -- IGNORE MY SHITTY CODE IT WORKS :)))) [FROG] -- it barely works bro im so retarded [frog in the future]
 
 local Config = { 
-    WindowName = "GEEZWARE Community v4 | RIOT",
+    WindowName = "GEEZWARE Community v4.1 | RIOT",
 	Color = Color3.fromRGB(32,92,167),
 	Keybind = Enum.KeyCode.RightBracket
 }
@@ -305,7 +305,7 @@ local fuckslider = Section7:CreateSlider("Extender Size", 2, 30, 5, true, functi
 			if v.Name ~= game.Players.LocalPlayer.Name then
 			  pcall(function()
 				v.Character.HumanoidRootPart.Size = Vector3.new(3, 3, 3)
-				v.Character.HumanoidRootPart.Transparency = _G.trans
+				v.Character.HumanoidRootPart.Transparency = trans
 				v.Character.HumanoidRootPart.CanCollide = false
 				wait()
 			  end)
