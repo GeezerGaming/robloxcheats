@@ -318,7 +318,7 @@ local fuckslider = Section7:CreateSlider("Extender Size", 2, 30, 5, true, functi
 		  if v.Name ~= game.Players.LocalPlayer.Name then
 			pcall(function()
 			  v.Character.HumanoidRootPart.Size = Vector3.new(value, value, value)
-			  v.Character.HumanoidRootPart.Transparency = _G.trans
+			  v.Character.HumanoidRootPart.Transparency = trans
 			  v.Character.HumanoidRootPart.CanCollide = false
 			  wait()
 			end)
